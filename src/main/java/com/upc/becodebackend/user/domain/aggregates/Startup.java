@@ -5,6 +5,9 @@
 
 package com.upc.becodebackend.user.domain.aggregates;
 
+import com.upc.becodebackend.user.domain.commands.CreateStartupCommand;
+import com.upc.becodebackend.user.domain.commands.DescriptionCommand;
+import com.upc.becodebackend.user.domain.commands.WorkersAmmountCommand;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.Approach;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.Description;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.HiringStatus;
@@ -61,6 +64,21 @@ public class Startup extends BaseUser {
         this.approach = approach;
         this.hiringStatus = hiringStatus;
         this.workers = workers;
+    }
+
+    public Startup(CreateStartupCommand command) {
+        super(command.firstname(), command.lastName(), command.email(), command.dni(), 
+            command.password(), command.age(), command.profession());
+        
+    }
+    
+    public Startup(String firstname, String lastName, String email, String dni, String password, String age,
+            String profession, String StartupName2, DescriptionCommand Description2,
+            HiringStatus hiringStatus2, WorkersAmmountCommand workers2) {
+    }
+
+    public String getName(){
+        return StartupName;
     }
 
 }

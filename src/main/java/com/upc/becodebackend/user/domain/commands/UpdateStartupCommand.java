@@ -9,9 +9,10 @@ import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.Hiring
 
 /**
  *
- * @author Rodrigo Liberato
+ * @author 51924
  */
-public record CreateStartupCommand(
+public record UpdateStartupCommand(
+    String StartupId,
     String firstname,
     String lastName,
     String email,
@@ -19,13 +20,16 @@ public record CreateStartupCommand(
     String password,
     String age,
     String profession,
-    String StartupName,
     DescriptionCommand description,
     ApproachCommand approach,
     HiringStatus hiringStatus,
     WorkersAmmountCommand workers
 ) {
-    public CreateStartupCommand {
+
+    public UpdateStartupCommand {
+        if (StartupId == null || StartupId.trim().isEmpty()) {
+            throw new IllegalArgumentException("StartupId cannot be null or empty");
+        }
         if (firstname == null || firstname.trim().isEmpty()) {
             throw new IllegalArgumentException("Firstname cannot be null or empty");
         }

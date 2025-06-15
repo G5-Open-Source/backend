@@ -7,7 +7,12 @@ package com.upc.becodebackend.user.domain.commands;
 
 /**
  *
- * @author Rodrigo Liberato
+ * @author 51924
  */
-public record DescriptionCommand(String Description) {
+public record DeleteStartupCommand(String StartupId) {
+    public DeleteStartupCommand{
+        if(StartupId == null){
+            throw new IllegalArgumentException("Starup id cannot be null");
+        }
+    }
 }

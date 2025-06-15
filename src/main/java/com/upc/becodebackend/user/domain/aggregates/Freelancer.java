@@ -5,10 +5,13 @@
 
 package com.upc.becodebackend.user.domain.aggregates;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.upc.becodebackend.user.domain.commands.AveragePayPerHourCommand;
+import com.upc.becodebackend.user.domain.commands.CreateFreelancerCommand;
 import com.upc.becodebackend.user.domain.commands.StudyCertificateCommand;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.AveragePayPerHour;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.StudyCertificate;
@@ -37,6 +40,7 @@ import lombok.Setter;
 @DiscriminatorValue("FREELANCER")
 @Table(name = "Freelancers")
 public class Freelancer extends BaseUser {
+    
     @Embedded
     @ElementCollection
     @CollectionTable(name = "freelancer_certificates", joinColumns = @JoinColumn(name = "freelancer_id"))
@@ -70,17 +74,70 @@ public class Freelancer extends BaseUser {
             AveragePayPerHourCommand averagePayPerHour2) {
     }
 
-    public void addStudyCertificate(StudyCertificate certificate) {
+    public Freelancer(CreateFreelancerCommand command) {
+        super(command.firstname(), command.lastName(), command.email(), command.dni(), 
+            command.password(), command.age(), command.profession());
+        
+         
+        this.studyCertificates = new ArrayList<>();
+        
+
+        if (command.studyCertificates() != null && !command.studyCertificates().isEmpty()) {
+            for (StudyCertificateCommand certName : command.studyCertificates()) {
+                this.studyCertificates.add(new StudyCertificate( certName.Name(), certName.Description(), certName.AdquisitionDate()
+                ));
+            }}
+
+    }
+
+
+    public void addStudyCertificate(String name, String description, Date acquisitionDate) {
         if (this.studyCertificates == null) {
             this.studyCertificates = new ArrayList<>();
         }
-        this.studyCertificates.add(certificate);
+        this.studyCertificates.add(new StudyCertificate( name, description, acquisitionDate));
+    }
+    public void addStudyCertificateFromCommand(StudyCertificateCommand command) {
+    if (this.studyCertificates == null) {
+        this.studyCertificates = new ArrayList<>();
+    }
+    this.studyCertificates.add(new StudyCertificate(
+        command.Name(), 
+        command.Description(), 
+        command.AdquisitionDate()
+    ));
     }
 
-    public void removeStudyCertificate(StudyCertificate certificate) {
-        if (this.studyCertificates != null) {
-            this.studyCertificates.remove(certificate);
-        }
+
+public List<String> getStudyCertificateNames() {
+    if (this.studyCertificates == null || this.studyCertificates.isEmpty()) {
+        return new ArrayList<>();
     }
+    return this.studyCertificates.stream()
+            .map(StudyCertificate::Name)
+            .toList();
+}
+
+
+public List<StudyCertificate> getCertificatesByName(String name) {
+    if (this.studyCertificates == null || this.studyCertificates.isEmpty()) {
+        return new ArrayList<>();
+    }
+    return this.studyCertificates.stream()
+            .filter(cert -> cert.Name().equalsIgnoreCase(name))
+            .toList();
+}
+
+
+public BigDecimal getAveragePayPerHourValue() {
+    return this.averagePayPerHour != null ? 
+        this.averagePayPerHour.payment() : null; 
+}
+
+    @Override
+    public String getFullName(){
+        return FullName.getFullName();
+    }
+    
 
 }

@@ -14,7 +14,6 @@ import jakarta.persistence.Embeddable;
  * @author Rodrigo Liberato
  */
 @Embeddable
-
 public record AveragePayPerHour(BigDecimal payment) {
     public AveragePayPerHour() {this(null);}
     public AveragePayPerHour{

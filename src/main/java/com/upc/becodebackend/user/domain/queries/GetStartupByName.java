@@ -11,4 +11,5 @@ package com.upc.becodebackend.user.domain.queries;
  */
 public record GetStartupByName(String StartupName) {
 
+
 }

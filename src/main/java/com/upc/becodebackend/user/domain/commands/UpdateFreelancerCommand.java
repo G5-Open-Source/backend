@@ -5,27 +5,30 @@
 
 package com.upc.becodebackend.user.domain.commands;
 
-import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.HiringStatus;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.WorkingStatus;
 
 /**
  *
- * @author Rodrigo Liberato
+ * @author 51924
  */
-public record CreateStartupCommand(
-    String firstname,
+public record UpdateFreelancerCommand(String FreelancerId, String firstname,
     String lastName,
     String email,
     String dni,
     String password,
     String age,
     String profession,
-    String StartupName,
-    DescriptionCommand description,
-    ApproachCommand approach,
-    HiringStatus hiringStatus,
-    WorkersAmmountCommand workers
-) {
-    public CreateStartupCommand {
+    List<StudyCertificateCommand> studyCertificates,
+    WorkingStatus workingStatus,
+    AveragePayPerHourCommand averagePayPerHour) {
+
+        public UpdateFreelancerCommand {
+        if (FreelancerId == null || FreelancerId.trim().isEmpty()) {
+            throw new IllegalArgumentException("FreelancerId cannot be null or empty");
+        }
         if (firstname == null || firstname.trim().isEmpty()) {
             throw new IllegalArgumentException("Firstname cannot be null or empty");
         }
@@ -47,8 +50,12 @@ public record CreateStartupCommand(
         if (profession == null || profession.trim().isEmpty()) {
             throw new IllegalArgumentException("Profession cannot be null or empty");
         }
-        if (workers != null) {
-            throw new IllegalArgumentException("Workers count cannot be null");
+        if (averagePayPerHour != null) {
+            throw new IllegalArgumentException("Average pay per hour cannot be Null");
+        }
+        
+        if (studyCertificates == null) {
+            studyCertificates = new ArrayList<>();
         }
     }
 }

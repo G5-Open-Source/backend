@@ -5,7 +5,7 @@
 
 package com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects;
 
-import java.sql.Date;
+import java.util.Date;
 
 import jakarta.persistence.Embeddable;
 
