@@ -1,0 +1,10 @@
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\application\usecases\SubscribeUserUseCase.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\infrastructure\persistence\JpaSubscriptionRepository.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\interfaces\rest\SubscriptionController.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\domain\entities\Subscription.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\infrastructure\persistence\models\SubscriptionEntity.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\domain\repositories\SubscriptionRepository.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\domain\valueobjects\TipoSuscripcion.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\UserApplication.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\infrastructure\config\UserConfig.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\infrastructure\persistence\SubscriptionJpaRepository.java
