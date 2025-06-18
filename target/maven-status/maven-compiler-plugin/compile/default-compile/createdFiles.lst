@@ -1,0 +1,10 @@
+com\vecihub\subscription\SubscriptionApplication.class
+com\vecihub\subscription\interfaces\rest\SubscriptionController.class
+com\vecihub\subscription\application\usecases\SubscribeUserUseCase.class
+com\vecihub\subscription\domain\valueobjects\TipoSuscripcion.class
+com\vecihub\subscription\infrastructure\persistence\JpaSubscriptionRepository.class
+com\vecihub\subscription\domain\entities\Subscription.class
+com\vecihub\subscription\domain\repositories\SubscriptionRepository.class
+com\vecihub\subscription\infrastructure\config\SubscriptionConfig.class
+com\vecihub\subscription\infrastructure\persistence\models\SubscriptionEntity.class
+com\vecihub\subscription\infrastructure\persistence\SubscriptionJpaRepository.class

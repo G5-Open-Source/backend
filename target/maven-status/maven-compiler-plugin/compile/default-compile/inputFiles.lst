@@ -1,0 +1,10 @@
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael\src\main\java\com\vecihub\subscription\infrastructure\persistence\JpaSubscriptionRepository.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael\src\main\java\com\vecihub\subscription\application\usecases\SubscribeUserUseCase.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael\src\main\java\com\vecihub\subscription\interfaces\rest\SubscriptionController.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael\src\main\java\com\vecihub\subscription\domain\valueobjects\TipoSuscripcion.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael\src\main\java\com\vecihub\subscription\domain\repositories\SubscriptionRepository.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael\src\main\java\com\vecihub\subscription\SubscriptionApplication.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael\src\main\java\com\vecihub\subscription\domain\entities\Subscription.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael\src\main\java\com\vecihub\subscription\infrastructure\config\SubscriptionConfig.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael\src\main\java\com\vecihub\subscription\infrastructure\persistence\SubscriptionJpaRepository.java
+C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael\src\main\java\com\vecihub\subscription\infrastructure\persistence\models\SubscriptionEntity.java
