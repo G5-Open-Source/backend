@@ -37,7 +37,10 @@ public class FreelancerQueryServiceImpl implements FreelancerQueryService {
 
     @Override
     public Optional<Freelancer> handle(GetFreelancerByFullNameQuery query){
-        return this.freelancerRepository.findByFullName(query.Name());
+        return this.freelancerRepository.findByFullName_FirstNameAndFullName_LastName(
+        query.Name().firstName(),
+        query.Name().lastName()
+    );
     }
 
     @Override

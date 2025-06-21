@@ -37,28 +37,27 @@ public class FreelancerCommandServiceImpl implements FreelancerCommandService{
 
     @Override
     public Optional<Freelancer> handle(CreateFreelancerCommand command) {
-        try {
-            var email = new EmailUser(command.email());
-        freelancerRepository.findByEmail(email).map(freelancer -> {
-            throw new IllegalArgumentException("Profile with email "+ email.email() + " already exists");
-        });
-        
-        var dni = new Dni(command.dni());
-            freelancerRepository.findByDni(dni).map(freelancer ->{
-                throw new IllegalArgumentException("Profile with email "+ dni.DNI() + " already exists");
-            });    
+    try {
+        if (freelancerRepository.findByEmail_Email(command.email()).isPresent()) {
+            throw new IllegalArgumentException("Profile with email " + command.email() + " already exists");
+        }
 
-        var Freelancer = new Freelancer(command);
-        var createdFreelancer = freelancerRepository.save(Freelancer);
+        if (freelancerRepository.findByDni_DNI(command.dni()).isPresent()) {
+            throw new IllegalArgumentException("Profile with DNI " + command.dni() + " already exists");
+        }
+
+        var freelancer = new Freelancer(command);
+        freelancer.setWorkingStatus(command.workingStatus());
+        freelancer.setAveragePayPerHour(new AveragePayPerHour(command.averagePayPerHour().payment()));
+
+        var createdFreelancer = freelancerRepository.save(freelancer);
         return Optional.of(createdFreelancer);
 
-        } catch (IllegalArgumentException e) {
-            throw e;
-        
-        } 
-        catch (Exception e) {
-            throw new RuntimeException("Error creating freelancer: " + e.getMessage(), e);
-        }
+    } catch (IllegalArgumentException e) {
+        throw e;
+    } catch (Exception e) {
+        throw new RuntimeException("Error creating freelancer: " + e.getMessage(), e);
+    }
     }
 
     @Override
@@ -69,16 +68,18 @@ public class FreelancerCommandServiceImpl implements FreelancerCommandService{
                     "Freelancer with ID " + command.FreelancerId() + " not found"));
 
             if (command.email() != null && !command.email().equals(freelancer.getEmailUser())) {
-                var newEmail = new EmailUser(command.email());
-                var existingWithEmail = freelancerRepository.findByEmail(newEmail);
-                if (existingWithEmail.isPresent() && 
-                    !existingWithEmail.get().getId().equals(freelancer.getId())) {
+                var email = new EmailUser(command.email());
+                var ai = freelancerRepository.findByEmail_Email(email.email());
+                if (ai.isPresent() && 
+                    !ai.get().getId().equals(command.FreelancerId())) {
                     throw new IllegalArgumentException("Email " + command.email() + " is already in use");
                 }
             }
 
             if (command.firstname() != null) {
-                freelancer.setFullName(new UserName(command.firstname(), freelancer.getFullName().split(" ")[1]));
+                var fullName = freelancer.getFullName();
+                var currentFirstName = fullName.split(" ")[0];
+                var currentLastName = fullName.substring(currentFirstName.length()).trim();
             }
             
             if (command.lastName() != null) {

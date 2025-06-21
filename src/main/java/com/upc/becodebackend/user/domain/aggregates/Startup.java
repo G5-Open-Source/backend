@@ -8,6 +8,9 @@ package com.upc.becodebackend.user.domain.aggregates;
 import com.upc.becodebackend.user.domain.commands.CreateStartupCommand;
 import com.upc.becodebackend.user.domain.commands.DescriptionCommand;
 import com.upc.becodebackend.user.domain.commands.WorkersAmmountCommand;
+import com.upc.becodebackend.user.domain.valueobjects.EmailUser;
+import com.upc.becodebackend.user.domain.valueobjects.Profession;
+import com.upc.becodebackend.user.domain.valueobjects.UserName;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.Approach;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.Description;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.HiringStatus;
@@ -33,9 +36,10 @@ import lombok.Setter;
 @Setter
 @DiscriminatorValue("STARTUP")
 @Table(name = "Startups")
-public class Startup extends BaseUser {
+public class Startup extends BaseUser<Startup> {
 
-    String StartupName;
+    @Column(name = "startup_name")
+    private String name;
 
     @Column(name = "description", columnDefinition = "Descripcion de startup")
     private Description description;
@@ -59,7 +63,7 @@ public class Startup extends BaseUser {
                   String age, String profession, String startupname, Description description, Approach approach, 
                   HiringStatus hiringStatus, WorkersAmmount workers) {
         super(firstname, lastName, email, dni, password, age, profession);
-        this.StartupName = startupname;
+        this.name = startupname;
         this.description = description;
         this.approach = approach;
         this.hiringStatus = hiringStatus;
@@ -77,8 +81,37 @@ public class Startup extends BaseUser {
             HiringStatus hiringStatus2, WorkersAmmountCommand workers2) {
     }
 
-    public String getName(){
-        return StartupName;
+    public String getName() {
+        return name;
     }
+
+    public void setDescription(Description description) {
+    this.description = description;
+    }
+
+    public void setApproach(Approach approach) {
+        this.approach = approach;
+    }
+
+    public void setWorkers(WorkersAmmount workers) {
+        this.workers = workers;
+    }
+
+    public void setHiringStatus(HiringStatus hiringStatus) {
+        this.hiringStatus = hiringStatus;
+    }
+
+    public void setFullName(UserName name) {
+    this.fullName = name;
+    }
+
+    public void setEmail(EmailUser email) {
+        this.email = email;
+    }
+
+    public void setProfession(Profession profession) {
+        this.profession = profession;
+    }
+
 
 }

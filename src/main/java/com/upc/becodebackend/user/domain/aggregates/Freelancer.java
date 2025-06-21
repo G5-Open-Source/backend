@@ -13,6 +13,9 @@ import java.util.List;
 import com.upc.becodebackend.user.domain.commands.AveragePayPerHourCommand;
 import com.upc.becodebackend.user.domain.commands.CreateFreelancerCommand;
 import com.upc.becodebackend.user.domain.commands.StudyCertificateCommand;
+import com.upc.becodebackend.user.domain.valueobjects.EmailUser;
+import com.upc.becodebackend.user.domain.valueobjects.Profession;
+import com.upc.becodebackend.user.domain.valueobjects.UserName;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.AveragePayPerHour;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.StudyCertificate;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.WorkingStatus;
@@ -39,9 +42,8 @@ import lombok.Setter;
 @Getter
 @DiscriminatorValue("FREELANCER")
 @Table(name = "Freelancers")
-public class Freelancer extends BaseUser {
-    
-    @Embedded
+public class Freelancer extends BaseUser<Freelancer> {
+
     @ElementCollection
     @CollectionTable(name = "freelancer_certificates", joinColumns = @JoinColumn(name = "freelancer_id"))
     @Column(name = "certificate")
@@ -109,35 +111,59 @@ public class Freelancer extends BaseUser {
     }
 
 
-public List<String> getStudyCertificateNames() {
-    if (this.studyCertificates == null || this.studyCertificates.isEmpty()) {
-        return new ArrayList<>();
+    public List<String> getStudyCertificateNames() {
+        if (this.studyCertificates == null || this.studyCertificates.isEmpty()) {
+            return new ArrayList<>();
+        }
+        return this.studyCertificates.stream()
+                .map(StudyCertificate::Name)
+                .toList();
     }
-    return this.studyCertificates.stream()
-            .map(StudyCertificate::Name)
-            .toList();
-}
 
 
-public List<StudyCertificate> getCertificatesByName(String name) {
-    if (this.studyCertificates == null || this.studyCertificates.isEmpty()) {
-        return new ArrayList<>();
+    public List<StudyCertificate> getCertificatesByName(String name) {
+        if (this.studyCertificates == null || this.studyCertificates.isEmpty()) {
+            return new ArrayList<>();
+        }
+        return this.studyCertificates.stream()
+                .filter(cert -> cert.Name().equalsIgnoreCase(name))
+                .toList();
     }
-    return this.studyCertificates.stream()
-            .filter(cert -> cert.Name().equalsIgnoreCase(name))
-            .toList();
-}
 
 
-public BigDecimal getAveragePayPerHourValue() {
-    return this.averagePayPerHour != null ? 
-        this.averagePayPerHour.payment() : null; 
-}
+    public BigDecimal getAveragePayPerHourValue() {
+        return this.averagePayPerHour != null ? 
+            this.averagePayPerHour.payment() : null; 
+    }
 
     @Override
     public String getFullName(){
-        return FullName.getFullName();
+        return fullName.getFullName();
     }
     
+    public void setEmail(EmailUser email) {
+        this.email = email;
+    }
 
+    public void setFullName(UserName fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setProfession(Profession profession) {
+        this.profession = profession;
+    }
+
+    public void setWorkingStatus(WorkingStatus workingStatus) {
+        this.workingStatus = workingStatus;
+    }
+
+    public void setAveragePayPerHour(AveragePayPerHour averagePayPerHour) {
+        this.averagePayPerHour = averagePayPerHour;
+    }
+
+    public List<StudyCertificate> getStudyCertificates() {
+        return this.studyCertificates;
+    }
+
+    
 }

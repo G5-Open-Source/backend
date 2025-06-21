@@ -22,7 +22,6 @@ import lombok.Setter;
 
 public class AuditableAbstractAggregateRoot<T extends AbstractAggregateRoot<T>> extends AbstractAggregateRoot<T> {
     @Id
-    @Getter
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
@@ -35,7 +34,7 @@ public class AuditableAbstractAggregateRoot<T extends AbstractAggregateRoot<T>> 
     @LastModifiedDate
     @Column(nullable = false)
     private Date updatedAt;
-     @Getter
+    @Getter
     @Setter
     @Column(nullable = false)
     private Boolean active = true;
@@ -70,5 +69,8 @@ public class AuditableAbstractAggregateRoot<T extends AbstractAggregateRoot<T>> 
 
     public void restore() {
         this.active = true;
+    }
+    public String getId() {
+    return this.id;
     }
 }

@@ -54,7 +54,7 @@ public class UserController {
         this.freelancerCommandService = freelancerCommandService;
     }
 
-    @PostMapping
+    @PostMapping("/freelancer")
     public ResponseEntity<FreelancerResource> createFreelancer(@RequestBody CreateFreelancerResource resource) {
         var createFreelancerCommand = CreateFreelancerCommandFromResourceAssembler.toCommandFromResource(resource);
         var freelancer = freelancerCommandService.handle(createFreelancerCommand);
@@ -66,7 +66,7 @@ public class UserController {
         return new ResponseEntity<>(freelancerResource, HttpStatus.CREATED);
     }
     
-    @PostMapping
+    @PostMapping("/startup")
     public ResponseEntity<StartupResource> createStartup(@RequestBody CreateStartupResource resource) {
         var createStartupCommand = CreateStartupCommandFromResourceAssembler.toCommandFromResource(resource);
         var startup = startupCommandService.handle(createStartupCommand);

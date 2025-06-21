@@ -11,20 +11,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.upc.becodebackend.user.domain.aggregates.Freelancer;
-import com.upc.becodebackend.user.domain.valueobjects.Dni;
-import com.upc.becodebackend.user.domain.valueobjects.EmailUser;
-import com.upc.becodebackend.user.domain.valueobjects.UserName;
-
 /**
  *
  * @author 51924
  */
 @Repository
-public interface FreelancerRepository extends JpaRepository<Freelancer, String>{
-    Optional<Freelancer> findByFullName(UserName userName);
+public interface FreelancerRepository extends JpaRepository<Freelancer, String> {
 
-    Optional<Freelancer> findByEmail(EmailUser email);
+    Optional<Freelancer> findByFullName_FirstNameAndFullName_LastName(String firstName, String lastName);
 
-    Optional<Freelancer> findByDni(Dni dni);
-    
+    Optional<Freelancer> findByEmail_Email(String email);
+
+    Optional<Freelancer> findByDni_DNI(String dni);       
 }
+

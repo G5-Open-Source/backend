@@ -32,58 +32,60 @@ import lombok.Setter;
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
-public class BaseUser extends AuditableAbstractAggregateRoot<BaseUser> {
+public abstract class BaseUser<T extends BaseUser<T>> extends AuditableAbstractAggregateRoot<T> {
     @Embedded
-    UserName FullName;
+    UserName fullName;
 
     @Embedded
-    EmailUser Email;
+    EmailUser email;
 
     @Embedded
-    Dni DNI;
+    Dni dni;
 
     @Embedded
-    Password Password;
-    
-    @Embedded
-    Age Age;
+    Password password;
 
     @Embedded
-    Profession Profession;
+    Age age;
 
+    @Embedded
+    Profession profession;
 
     public BaseUser(){
     }
 
     public BaseUser(String firstname, String lastName, String email, String dni, String password, String age, String Profession){
-        this.FullName = new UserName(firstname, lastName);
-        this.Email = new EmailUser(email);
-        this.DNI = new Dni(dni);
-        this.Password = new Password(password);
-        this.Age = new Age(age);
-        this.Profession = new Profession(Profession);
+        this.fullName = new UserName(firstname, lastName);
+        this.email = new EmailUser(email);
+        this.dni = new Dni(dni);
+        this.password = new Password(password);
+        this.age = new Age(age);
+        this.profession = new Profession(Profession);
     }
 
     public String getFullName(){
-        return FullName.getFullName();
+        return fullName.getFullName();
     }
     public String getEmailUser(){
-        return Email.email();
+        return email.email();
     }
     public String getDni(){
-        return DNI.DNI();
+        return dni.DNI();
     }
     public String getPassworde(){
-        return Password.password();
+        return password.password();
     }
     public String getProfession(){
-        return Profession.profession();
+        return profession.profession();
     }
     public String getAge(){
-        return Age.age();
+        return age.age();
     }
-    
-    
+    @Override
+    public String getId() {
+        return super.getId();
+    }
+
 
 
 }
