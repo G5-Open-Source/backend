@@ -12,6 +12,8 @@ public class Message {
     private Long senderId;
     private Long receiverId;
     private String content;
+
+    @Column(name = "timestamp", nullable = false, columnDefinition = "DATETIME")
     private LocalDateTime timestamp;
 
     public Message() {}
