@@ -1,19 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Record.java to edit this template
- */
-
 package com.upc.becodebackend.user.domain.commands;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.WorkingStatus;
 
-/**
- *
- * @author Rodrigo Liberato
- */
 public record CreateFreelancerCommand(
     String firstname,
     String lastName,
@@ -48,13 +38,11 @@ public record CreateFreelancerCommand(
         if (profession == null || profession.trim().isEmpty()) {
             throw new IllegalArgumentException("Profession cannot be null or empty");
         }
+        if (studyCertificates == null) {
+            throw new IllegalArgumentException("StudyCertificates cannot be null");
+        }
         if (averagePayPerHour == null) {
             throw new IllegalArgumentException("Average pay per hour cannot be null");
         }
-        
-        if (studyCertificates == null) {
-            studyCertificates = new ArrayList<>();
-        }
     }
-
 }

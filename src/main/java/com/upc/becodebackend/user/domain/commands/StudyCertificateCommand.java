@@ -11,6 +11,6 @@ import java.sql.Date;
  *
  * @author Rodrigo Liberato
  */
-public record StudyCertificateCommand(String Name, String Description, Date AdquisitionDate) {
+public record StudyCertificateCommand(String name, String description, Date adquisitionDate) {
 
 }

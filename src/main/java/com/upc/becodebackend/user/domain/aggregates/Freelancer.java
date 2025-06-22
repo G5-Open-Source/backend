@@ -85,7 +85,7 @@ public class Freelancer extends BaseUser<Freelancer> {
 
         if (command.studyCertificates() != null && !command.studyCertificates().isEmpty()) {
             for (StudyCertificateCommand certName : command.studyCertificates()) {
-                this.studyCertificates.add(new StudyCertificate( certName.Name(), certName.Description(), certName.AdquisitionDate()
+                this.studyCertificates.add(new StudyCertificate( certName.name(), certName.description(), certName.adquisitionDate()
                 ));
             }}
 
@@ -103,9 +103,9 @@ public class Freelancer extends BaseUser<Freelancer> {
         this.studyCertificates = new ArrayList<>();
     }
     this.studyCertificates.add(new StudyCertificate(
-        command.Name(), 
-        command.Description(), 
-        command.AdquisitionDate()
+        command.name(), 
+        command.description(), 
+        command.adquisitionDate()
     ));
     }
 
@@ -163,6 +163,14 @@ public class Freelancer extends BaseUser<Freelancer> {
     public List<StudyCertificate> getStudyCertificates() {
         return this.studyCertificates;
     }
+    public WorkingStatus getWorkingStatus() {
+    return workingStatus;
+    }
+
+    public AveragePayPerHour getAveragePayPerHour() {
+        return averagePayPerHour;
+    }
+
 
     
 }
