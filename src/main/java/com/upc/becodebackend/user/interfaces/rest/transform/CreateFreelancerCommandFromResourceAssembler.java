@@ -23,7 +23,7 @@ public class CreateFreelancerCommandFromResourceAssembler {
         resource.profession(), 
         resource.studyCertificates(), 
         resource.workingStatus(), 
-        resource.AveragePayment());
+        resource.averagePayPerHour());
     }
 
 }

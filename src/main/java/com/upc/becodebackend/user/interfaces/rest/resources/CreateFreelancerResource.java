@@ -15,7 +15,8 @@ import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.Wor
  *
  * @author 51924
  */
-public record CreateFreelancerResource(String firstname,
+public record CreateFreelancerResource(
+    String firstname,
     String lastName,
     String email,
     String dni,
@@ -24,6 +25,6 @@ public record CreateFreelancerResource(String firstname,
     String profession,
     List<StudyCertificateCommand> studyCertificates,
     WorkingStatus workingStatus,
-    AveragePayPerHourCommand AveragePayment) {
+    AveragePayPerHourCommand averagePayPerHour
+) {}
 
-}
