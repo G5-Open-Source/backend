@@ -1,10 +1,77 @@
-C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\application\usecases\SubscribeUserUseCase.java
-C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\infrastructure\persistence\JpaSubscriptionRepository.java
-C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\interfaces\rest\SubscriptionController.java
-C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\domain\entities\Subscription.java
-C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\infrastructure\persistence\models\SubscriptionEntity.java
-C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\domain\repositories\SubscriptionRepository.java
-C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\domain\valueobjects\TipoSuscripcion.java
-C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\UserApplication.java
-C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\infrastructure\config\UserConfig.java
-C:\Users\Rafael\OneDrive - Universidad Peruana de Ciencias\Desktop\kael2\src\main\java\com\upc\becodebackend\user\infrastructure\persistence\SubscriptionJpaRepository.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\application\queryServices\PublicationQueryServiceImpl.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\domain\repositories\PublicationRepository.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\queries\GetStartupByName.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\interfaces\rest\UserController.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\interfaces\rest\transform\FreelancerResourceFromEntityAssembler.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\queries\GetFreelancerByFullNameQuery.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\services\StartupCommandService.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\freelancerValueObjects\StudyCertificate.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\application\commandServices\PublicationCommandServiceImpl.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\WorkersAmmountCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\queries\GetFreelancerByIdQuery.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\Profession.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\infrastructure\persistence\jpa\repositories\StartupRepository.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\interfaces\rest\resources\StartupResource.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\startupValueObjects\HiringStatus.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\projectmanagement\application\services\HiringService.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\Dni.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\interfaces\rest\transform\StartupResourceFromEntityAssembler.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\projectmanagement\domain\model\Project.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\shared\domain\model\aggregates\AuditableAbstractAggregateRoot.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\domain\aggregates\Publication.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\shared\domain\model\entities\AuditableModel.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\application\queryServices\FreelancerQueryServiceImpl.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\services\FreelancerQueryService.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\queries\GetAllStartupsQuery.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\BecodeBackendApplication.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\application\commandServices\FreelancerCommandServiceImpl.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\ApproachCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\UserName.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\interfaces\rest\resources\CreatePublicationResource.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\EmailUser.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\interfaces\rest\resources\CreateStartupResource.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\startupValueObjects\Description.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\infrastructure\persistence\jpa\repositories\FreelancerRepository.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\freelancerValueObjects\AveragePayPerHour.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\projectmanagement\application\services\ProjectService.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\aggregates\Startup.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\messaging\domain\repository\MessageRepository.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\projectmanagement\domain\model\Hiring.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\projectmanagement\domain\repository\ProjectRepository.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\Age.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\application\commandServices\StartupCommandServiceImpl.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\DescriptionCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\application\queryServices\StartupQueryServiceImpl.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\interfaces\rest\resources\UpdatePublicationResource.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\DeleteFreelancerCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\interfaces\rest\resources\FreelancerResource.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\startupValueObjects\WorkersAmmount.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\interfaces\rest\resources\CreateFreelancerResource.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\DeleteStartupCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\startupValueObjects\Approach.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\services\FreelancerCommandService.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\messaging\api\MessagingController.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\Password.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\UpdateStartupCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\UpdateFreelancerCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\aggregates\BaseUser.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\interfaces\rest\transform\CreateStartupCommandFromResourceAssembler.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\projectmanagement\api\ProjectController.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\application\queryServices\PublicationQueryService.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\projectmanagement\api\HiringController.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\queries\GetStartupById.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\projectmanagement\domain\repository\HiringRepository.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\freelancerValueObjects\WorkingStatus.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\interfaces\rest\PublicationController.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\messaging\application\services\MessagingService.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\services\StartupQueryService.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\AveragePayPerHourCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\application\commandServices\PublicationCommandService.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\CreateStartupCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\queries\GetAllFreelancersQuery.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\CreateFreelancerCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\aggregates\Freelancer.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\StudyCertificateCommand.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\messaging\domain\model\Message.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\interfaces\rest\resources\PublicationResource.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\interfaces\rest\transform\CreateFreelancerCommandFromResourceAssembler.java
