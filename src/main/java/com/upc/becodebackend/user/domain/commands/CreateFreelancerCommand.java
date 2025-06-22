@@ -48,8 +48,8 @@ public record CreateFreelancerCommand(
         if (profession == null || profession.trim().isEmpty()) {
             throw new IllegalArgumentException("Profession cannot be null or empty");
         }
-        if (averagePayPerHour != null) {
-            throw new IllegalArgumentException("Average pay per hour cannot be Null");
+        if (averagePayPerHour == null) {
+            throw new IllegalArgumentException("Average pay per hour cannot be null");
         }
         
         if (studyCertificates == null) {
