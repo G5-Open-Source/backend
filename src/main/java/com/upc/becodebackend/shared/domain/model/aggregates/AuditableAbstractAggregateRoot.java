@@ -27,13 +27,14 @@ public class AuditableAbstractAggregateRoot<T extends AbstractAggregateRoot<T>> 
 
     @Getter
     @CreatedDate
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false, columnDefinition = "DATETIME")
     private Date createdAt;
 
     @Getter
     @LastModifiedDate
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "DATETIME")
     private Date updatedAt;
+    
     @Getter
     @Setter
     @Column(nullable = false)

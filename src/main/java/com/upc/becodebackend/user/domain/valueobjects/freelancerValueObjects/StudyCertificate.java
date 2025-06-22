@@ -7,6 +7,7 @@ package com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 /**
@@ -14,23 +15,35 @@ import jakarta.persistence.Embeddable;
  * @author Rodrigo Liberato
  */
 @Embeddable
-public record StudyCertificate(String Name, String Description, Date AdquisitionDate) {
-    public StudyCertificate() {this(null,null,null);}
+public class StudyCertificate {
 
-    public StudyCertificate{
-        if (Name == null || Name.isBlank()){
-            throw new IllegalArgumentException("Name for certificate is required");
-        }
-        if (Description == null || Description.isBlank()){
-            throw new IllegalArgumentException("Description for certificate is required");
-        }
-        if (AdquisitionDate == null){
-            throw new IllegalArgumentException("AdquisitionDate for certificate is required");
-        }
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "description", nullable = false)
+    private String description;
+
+    @Column(name = "adquisition_date", nullable = false, columnDefinition = "DATETIME")
+    private Date adquisitionDate;
+
+    public StudyCertificate() {
     }
 
-    public String GetStudyCertificate(){
-        return String.format("%s %s", Name, Description, AdquisitionDate);
+    public StudyCertificate(String name, String description, Date adquisitionDate) {
+        if (name == null || name.isBlank()) throw new IllegalArgumentException("Name is required");
+        if (description == null || description.isBlank()) throw new IllegalArgumentException("Description is required");
+        if (adquisitionDate == null) throw new IllegalArgumentException("AdquisitionDate is required");
+
+        this.name = name;
+        this.description = description;
+        this.adquisitionDate = adquisitionDate;
     }
 
+    public String getName() { return name; }
+    public String getDescription() { return description; }
+    public Date getAdquisitionDate() { return adquisitionDate; }
+
+    public String getStudyCertificate() {
+        return String.format("%s %s", name, description, adquisitionDate);
+    }
 }

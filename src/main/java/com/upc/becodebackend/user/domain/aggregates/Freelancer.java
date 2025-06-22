@@ -46,7 +46,6 @@ public class Freelancer extends BaseUser<Freelancer> {
 
     @ElementCollection
     @CollectionTable(name = "freelancer_certificates", joinColumns = @JoinColumn(name = "freelancer_id"))
-    @Column(name = "certificate")
     private List<StudyCertificate> studyCertificates;
     
     @Enumerated(EnumType.STRING)
@@ -113,10 +112,10 @@ public class Freelancer extends BaseUser<Freelancer> {
 
     public List<String> getStudyCertificateNames() {
         if (this.studyCertificates == null || this.studyCertificates.isEmpty()) {
-            return new ArrayList<>();
+        return new ArrayList<>();
         }
         return this.studyCertificates.stream()
-                .map(StudyCertificate::Name)
+                .map(StudyCertificate::getName)
                 .toList();
     }
 
@@ -126,7 +125,7 @@ public class Freelancer extends BaseUser<Freelancer> {
             return new ArrayList<>();
         }
         return this.studyCertificates.stream()
-                .filter(cert -> cert.Name().equalsIgnoreCase(name))
+                .filter(cert -> cert.getName().equalsIgnoreCase(name))
                 .toList();
     }
 
