@@ -16,7 +16,7 @@ public class ProjectController {
     }
 
     @GetMapping
-    public List<Project> getProjects() {
+    public List<Project> getAllProjects() {
         return projectService.getAllProjects();
     }
 
