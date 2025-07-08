@@ -1,5 +1,7 @@
 package com.upc.becodebackend.publication.interfaces.rest.resources;
 
+import java.util.function.LongBinaryOperator;
+
 import lombok.Data;
 
 @Data

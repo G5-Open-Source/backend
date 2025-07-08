@@ -13,7 +13,6 @@ import jakarta.persistence.Embeddable;
  */
 @Embeddable
 public record WorkersAmmount(Integer workerAmmount) {
-    public WorkersAmmount() {this(null);}
 
     public WorkersAmmount{
         if (workerAmmount == null) {

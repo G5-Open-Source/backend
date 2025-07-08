@@ -6,5 +6,5 @@ import lombok.Data;
 public class CreatePublicationResource {
     private String title;
     private String description;
-    private Long freelancerId;
+    private String freelancerId;
 }

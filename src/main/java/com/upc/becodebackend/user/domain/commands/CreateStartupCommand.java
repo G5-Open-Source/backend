@@ -47,7 +47,7 @@ public record CreateStartupCommand(
         if (profession == null || profession.trim().isEmpty()) {
             throw new IllegalArgumentException("Profession cannot be null or empty");
         }
-        if (workers != null) {
+        if (workers == null) {
             throw new IllegalArgumentException("Workers count cannot be null");
         }
     }
