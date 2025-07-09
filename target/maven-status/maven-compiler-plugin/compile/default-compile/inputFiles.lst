@@ -27,6 +27,7 @@ H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\BecodeBackendAp
 H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\application\commandServices\FreelancerCommandServiceImpl.java
 H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\commands\ApproachCommand.java
 H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\UserName.java
+H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\config\WebConfig.java
 H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\publication\interfaces\rest\resources\CreatePublicationResource.java
 H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\domain\valueobjects\EmailUser.java
 H:\WebApi\OpenSource\backend\src\main\java\com\upc\becodebackend\user\interfaces\rest\resources\CreateStartupResource.java

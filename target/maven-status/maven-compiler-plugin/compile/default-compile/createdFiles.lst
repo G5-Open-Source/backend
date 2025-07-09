@@ -27,6 +27,7 @@ com\upc\becodebackend\user\interfaces\rest\resources\CreateFreelancerResource.cl
 com\upc\becodebackend\user\interfaces\rest\UserController.class
 com\upc\becodebackend\projectmanagement\domain\repository\HiringRepository.class
 com\upc\becodebackend\publication\interfaces\rest\resources\UpdatePublicationResource.class
+com\upc\becodebackend\config\WebConfig$1.class
 com\upc\becodebackend\projectmanagement\domain\repository\ProjectRepository.class
 com\upc\becodebackend\user\domain\services\FreelancerQueryService.class
 com\upc\becodebackend\user\interfaces\rest\transform\StartupResourceFromEntityAssembler.class
@@ -56,6 +57,7 @@ com\upc\becodebackend\publication\domain\repositories\PublicationRepository.clas
 com\upc\becodebackend\publication\application\commandServices\PublicationCommandService.class
 com\upc\becodebackend\messaging\domain\repository\MessageRepository.class
 com\upc\becodebackend\user\application\commandServices\FreelancerCommandServiceImpl.class
+com\upc\becodebackend\config\WebConfig.class
 com\upc\becodebackend\user\domain\queries\GetStartupByName.class
 com\upc\becodebackend\user\interfaces\rest\transform\CreateStartupCommandFromResourceAssembler.class
 com\upc\becodebackend\user\domain\valueobjects\startupValueObjects\WorkersAmmount.class
