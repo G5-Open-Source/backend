@@ -30,6 +30,7 @@ com\upc\becodebackend\publication\interfaces\rest\resources\UpdatePublicationRes
 com\upc\becodebackend\projectmanagement\domain\repository\ProjectRepository.class
 com\upc\becodebackend\user\domain\services\FreelancerQueryService.class
 com\upc\becodebackend\user\interfaces\rest\transform\StartupResourceFromEntityAssembler.class
+com\upc\becodebackend\messaging\api\resources\CreateMessageResource.class
 com\upc\becodebackend\projectmanagement\application\services\HiringService.class
 com\upc\becodebackend\user\domain\aggregates\Startup.class
 com\upc\becodebackend\user\domain\commands\AveragePayPerHourCommand.class
@@ -40,6 +41,7 @@ com\upc\becodebackend\user\domain\aggregates\BaseUser.class
 com\upc\becodebackend\messaging\domain\model\Message.class
 com\upc\becodebackend\user\domain\queries\GetStartupById.class
 com\upc\becodebackend\user\domain\valueobjects\freelancerValueObjects\AveragePayPerHour.class
+com\upc\becodebackend\user\domain\valueobjects\UserRoles.class
 com\upc\becodebackend\projectmanagement\application\services\ProjectService.class
 com\upc\becodebackend\user\domain\queries\GetAllFreelancersQuery.class
 com\upc\becodebackend\publication\interfaces\rest\resources\CreatePublicationResource.class
@@ -47,6 +49,7 @@ com\upc\becodebackend\user\domain\aggregates\Freelancer.class
 com\upc\becodebackend\user\domain\valueobjects\startupValueObjects\HiringStatus.class
 com\upc\becodebackend\user\interfaces\rest\resources\StartupResource.class
 com\upc\becodebackend\user\domain\commands\ApproachCommand.class
+com\upc\becodebackend\projectmanagement\api\resources\CreateHiringResource.class
 com\upc\becodebackend\user\domain\commands\DeleteFreelancerCommand.class
 com\upc\becodebackend\messaging\api\MessagingController.class
 com\upc\becodebackend\publication\domain\repositories\PublicationRepository.class
@@ -64,6 +67,7 @@ com\upc\becodebackend\shared\domain\model\aggregates\AuditableAbstractAggregateR
 com\upc\becodebackend\user\interfaces\rest\transform\FreelancerResourceFromEntityAssembler.class
 com\upc\becodebackend\publication\interfaces\rest\resources\PublicationResource.class
 com\upc\becodebackend\publication\interfaces\rest\PublicationController.class
+com\upc\becodebackend\projectmanagement\api\resources\CreateProjectResource.class
 com\upc\becodebackend\BecodeBackendApplication.class
 com\upc\becodebackend\user\domain\commands\StudyCertificateCommand.class
 com\upc\becodebackend\user\interfaces\rest\resources\FreelancerResource.class

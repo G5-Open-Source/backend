@@ -2,6 +2,7 @@ package com.upc.becodebackend.user.domain.commands;
 
 import java.util.List;
 
+import com.upc.becodebackend.user.domain.valueobjects.UserRoles;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.WorkingStatus;
 
 public record CreateFreelancerCommand(
@@ -11,6 +12,7 @@ public record CreateFreelancerCommand(
     String dni,
     String password,
     String age,
+    UserRoles userRole,
     String profession,
     List<StudyCertificateCommand> studyCertificates,
     WorkingStatus workingStatus,
