@@ -20,6 +20,7 @@ public class CreateFreelancerCommandFromResourceAssembler {
         resource.dni(), 
         resource.password(), 
         resource.age(), 
+        resource.userRole(),
         resource.profession(), 
         resource.studyCertificates(), 
         resource.workingStatus(), 

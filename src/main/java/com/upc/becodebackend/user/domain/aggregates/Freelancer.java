@@ -18,6 +18,7 @@ import com.upc.becodebackend.user.domain.valueobjects.Profession;
 import com.upc.becodebackend.user.domain.valueobjects.UserName;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.AveragePayPerHour;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.StudyCertificate;
+import com.upc.becodebackend.user.domain.valueobjects.UserRoles;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.WorkingStatus;
 
 import jakarta.persistence.CollectionTable;
@@ -62,9 +63,9 @@ public class Freelancer extends BaseUser<Freelancer> {
     }
 
     public Freelancer(String firstname, String lastName, String email, String dni, String password, 
-                     String age, String profession, List<StudyCertificate> studyCertificates, 
+                     String age, UserRoles userRole, String profession, List<StudyCertificate> studyCertificates, 
                      WorkingStatus workingStatus, AveragePayPerHour averagePayPerHour) {
-        super(firstname, lastName, email, dni, password, age, profession);
+        super(firstname, lastName, email, dni, password, age, userRole, profession);
         this.studyCertificates = studyCertificates != null ? studyCertificates : new ArrayList<>();
         this.workingStatus = workingStatus;
         this.averagePayPerHour = averagePayPerHour;
@@ -77,7 +78,7 @@ public class Freelancer extends BaseUser<Freelancer> {
 
     public Freelancer(CreateFreelancerCommand command) {
         super(command.firstname(), command.lastName(), command.email(), command.dni(), 
-            command.password(), command.age(), command.profession());
+            command.password(), command.age(), command.userRole(), command.profession());
         
          
         this.studyCertificates = new ArrayList<>();
@@ -171,6 +172,9 @@ public class Freelancer extends BaseUser<Freelancer> {
         return averagePayPerHour;
     }
 
-
+    public void setRole(UserRoles role) {
+        this.userRole = role;
+    }
+    
     
 }

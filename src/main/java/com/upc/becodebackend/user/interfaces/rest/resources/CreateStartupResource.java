@@ -8,6 +8,7 @@ package com.upc.becodebackend.user.interfaces.rest.resources;
 import com.upc.becodebackend.user.domain.commands.ApproachCommand;
 import com.upc.becodebackend.user.domain.commands.DescriptionCommand;
 import com.upc.becodebackend.user.domain.commands.WorkersAmmountCommand;
+import com.upc.becodebackend.user.domain.valueobjects.UserRoles;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.HiringStatus;
 
 /**
@@ -21,6 +22,7 @@ public record CreateStartupResource(
     String dni,
     String password,
     String age,
+    UserRoles userRole,
     String profession,
     String StartupName,
     DescriptionCommand description,

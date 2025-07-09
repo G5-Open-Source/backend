@@ -12,11 +12,15 @@ import com.upc.becodebackend.user.domain.valueobjects.EmailUser;
 import com.upc.becodebackend.user.domain.valueobjects.Password;
 import com.upc.becodebackend.user.domain.valueobjects.Profession;
 import com.upc.becodebackend.user.domain.valueobjects.UserName;
+import com.upc.becodebackend.user.domain.valueobjects.UserRoles;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import lombok.Getter;
@@ -48,18 +52,23 @@ public abstract class BaseUser<T extends BaseUser<T>> extends AuditableAbstractA
     @Embedded
     Age age;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_role", nullable = false)
+    UserRoles userRole;
+
     @Embedded
     Profession profession;
 
     public BaseUser(){
     }
 
-    public BaseUser(String firstname, String lastName, String email, String dni, String password, String age, String Profession){
+    public BaseUser(String firstname, String lastName, String email, String dni, String password, String age, UserRoles userRole, String Profession){
         this.fullName = new UserName(firstname, lastName);
         this.email = new EmailUser(email);
         this.dni = new Dni(dni);
         this.password = new Password(password);
         this.age = new Age(age);
+        this.userRole = userRole;
         this.profession = new Profession(Profession);
     }
 
@@ -77,6 +86,9 @@ public abstract class BaseUser<T extends BaseUser<T>> extends AuditableAbstractA
     }
     public String getProfession(){
         return profession.profession();
+    }
+    public UserRoles getUserRole() {
+        return userRole;
     }
     public String getAge(){
         return age.age();

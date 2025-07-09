@@ -17,6 +17,7 @@ import com.upc.becodebackend.user.domain.services.StartupCommandService;
 import com.upc.becodebackend.user.domain.valueobjects.EmailUser;
 import com.upc.becodebackend.user.domain.valueobjects.Profession;
 import com.upc.becodebackend.user.domain.valueobjects.UserName;
+import com.upc.becodebackend.user.domain.valueobjects.UserRoles;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.Approach;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.Description;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.WorkersAmmount;
@@ -35,26 +36,37 @@ public class StartupCommandServiceImpl implements StartupCommandService {
         this.startupRepository = startupRepository;
     }
 
-    @Override
-    public Optional<Startup> handle(CreateStartupCommand command) {
-         try {
-            String StarupName = command.StartupName();
-            startupRepository.findByName(StarupName).map(startup -> {
-            throw new IllegalArgumentException("Startup with Name "+ StarupName + " already exists");
-        });   
+@Override
+public Optional<Startup> handle(CreateStartupCommand command) {
+    try {
+        // Validar email único
+        if (startupRepository.findByEmail_Email(command.email()).isPresent()) {
+            throw new IllegalArgumentException("Startup with email " + command.email() + " already exists");
+        }
 
-        var Startup = new Startup(command);
-        var createdStartup = startupRepository.save(Startup);
+        String startupName = command.StartupName(); 
+        if (startupRepository.findByName(startupName).isPresent()) {
+            throw new IllegalArgumentException("Startup with name " + startupName + " already exists");
+        }
+
+        var startup = new Startup(command);
+
+        startup.setDescription(new Description(command.description().Description()));
+        startup.setApproach(new Approach(command.approach().Approach()));
+        startup.setHiringStatus(command.hiringStatus());
+        startup.setWorkers(new WorkersAmmount(command.workers().WorkersAmmount()));
+
+        startup.setRole(UserRoles.STARTUP);
+        var createdStartup = startupRepository.save(startup);
         return Optional.of(createdStartup);
 
-        } catch (IllegalArgumentException e) {
-            throw e;
-        
-        } 
-        catch (Exception e) {
-            throw new RuntimeException("Error creating Startup: " + e.getMessage(), e);
-        }
+    } catch (IllegalArgumentException e) {
+        throw e;
+    } catch (Exception e) {
+        throw new RuntimeException("Error creating Startup: " + e.getMessage(), e);
     }
+}
+
 
     @SuppressWarnings("unchecked")
     @Override
@@ -66,7 +78,7 @@ public class StartupCommandServiceImpl implements StartupCommandService {
 
             if (command.email() != null && !command.email().equals(Startup.getEmailUser())) {
                 var newEmail = new EmailUser(command.email());
-                var existingWithEmail = startupRepository.findByEmail(newEmail);
+                var existingWithEmail = startupRepository.findByEmail_Email(newEmail.email());
 
                 if (((Optional<Startup>) existingWithEmail).isPresent() && 
                     !((Optional<Startup>) existingWithEmail).get().getId().equals(Startup.getId())) {

@@ -20,6 +20,7 @@ public class CreateStartupCommandFromResourceAssembler {
         resource.dni(), 
         resource.password(), 
         resource.age(), 
+        resource.userRole(),
         resource.profession(), 
         resource.StartupName(), 
         resource.description(), 

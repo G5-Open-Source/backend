@@ -11,6 +11,7 @@ import com.upc.becodebackend.user.domain.commands.WorkersAmmountCommand;
 import com.upc.becodebackend.user.domain.valueobjects.EmailUser;
 import com.upc.becodebackend.user.domain.valueobjects.Profession;
 import com.upc.becodebackend.user.domain.valueobjects.UserName;
+import com.upc.becodebackend.user.domain.valueobjects.UserRoles;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.AveragePayPerHour;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.WorkingStatus;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.Approach;
@@ -63,9 +64,9 @@ public class Startup extends BaseUser<Startup> {
     }
 
     public Startup(String firstname, String lastName, String email, String dni, String password, 
-                  String age, String profession, String startupname, Description description, Approach approach, 
+                  String age, UserRoles userRole, String profession, String startupname, Description description, Approach approach, 
                   HiringStatus hiringStatus, WorkersAmmount workers) {
-        super(firstname, lastName, email, dni, password, age, profession);
+        super(firstname, lastName, email, dni, password, age, userRole, profession);
         this.name = startupname;
         this.description = description;
         this.approach = approach;
@@ -75,15 +76,13 @@ public class Startup extends BaseUser<Startup> {
 
     public Startup(CreateStartupCommand command) {
         super(command.firstname(), command.lastName(), command.email(), command.dni(), 
-            command.password(), command.age(), command.profession());
+            command.password(), command.age(), command.userRole(), command.profession());
     }
 
     public Startup(String firstname, String lastName, String email, String dni, String password, String age,
             String profession, String StartupName2, DescriptionCommand Description2,
             HiringStatus hiringStatus2, WorkersAmmountCommand workers2) {
     }
-
-    // GETTERS explícitos adicionales por seguridad
 
     public Description getDescription() {
         return description;
@@ -100,4 +99,36 @@ public class Startup extends BaseUser<Startup> {
     public WorkersAmmount getWorkers() {
         return workers;
     }
+
+    public void setEmail(EmailUser email) {
+        this.email = email;
+    }
+
+    public void setFullName(UserName fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setProfession(Profession profession) {
+        this.profession = profession;
+    }
+    public void setRole(UserRoles role) {
+        this.userRole = role;
+    }
+
+
+    public void setDescription(Description description) {
+        this.description = description;
+    }
+    public void setApproach(Approach approach) {
+        this.approach = approach;
+    }
+
+    public void setHiringStatus(HiringStatus hiringStatus) {
+        this.hiringStatus = hiringStatus;
+    }
+    public void setWorkers(WorkersAmmount workers) {
+        this.workers = workers;
+    }
+
+    
 }

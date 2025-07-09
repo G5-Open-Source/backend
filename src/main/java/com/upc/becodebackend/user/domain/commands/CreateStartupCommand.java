@@ -5,6 +5,7 @@
 
 package com.upc.becodebackend.user.domain.commands;
 
+import com.upc.becodebackend.user.domain.valueobjects.UserRoles;
 import com.upc.becodebackend.user.domain.valueobjects.startupValueObjects.HiringStatus;
 
 /**
@@ -18,6 +19,7 @@ public record CreateStartupCommand(
     String dni,
     String password,
     String age,
+    UserRoles userRole,
     String profession,
     String StartupName,
     DescriptionCommand description,

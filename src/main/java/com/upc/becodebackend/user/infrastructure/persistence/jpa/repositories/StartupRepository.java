@@ -10,6 +10,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.upc.becodebackend.user.domain.aggregates.Freelancer;
 import com.upc.becodebackend.user.domain.aggregates.Startup;
 import com.upc.becodebackend.user.domain.valueobjects.EmailUser;
 
@@ -21,6 +22,5 @@ import com.upc.becodebackend.user.domain.valueobjects.EmailUser;
 public interface StartupRepository extends JpaRepository<Startup, String> {
     Optional<Startup> findByName(String startupName);
 
-    Object findByEmail(EmailUser newEmail);
-    
+    Optional<Startup> findByEmail_Email(String email);
 }

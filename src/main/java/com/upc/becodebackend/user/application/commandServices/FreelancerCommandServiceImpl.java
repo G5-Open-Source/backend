@@ -19,6 +19,7 @@ import com.upc.becodebackend.user.domain.valueobjects.Dni;
 import com.upc.becodebackend.user.domain.valueobjects.EmailUser;
 import com.upc.becodebackend.user.domain.valueobjects.Profession;
 import com.upc.becodebackend.user.domain.valueobjects.UserName;
+import com.upc.becodebackend.user.domain.valueobjects.UserRoles;
 import com.upc.becodebackend.user.domain.valueobjects.freelancerValueObjects.AveragePayPerHour;
 import com.upc.becodebackend.user.infrastructure.persistence.jpa.repositories.FreelancerRepository;
 
@@ -47,8 +48,11 @@ public class FreelancerCommandServiceImpl implements FreelancerCommandService{
         }
 
         var freelancer = new Freelancer(command);
+
         freelancer.setWorkingStatus(command.workingStatus());
         freelancer.setAveragePayPerHour(new AveragePayPerHour(command.averagePayPerHour().payment()));
+
+        freelancer.setRole(UserRoles.STARTUP);
 
         var createdFreelancer = freelancerRepository.save(freelancer);
         return Optional.of(createdFreelancer);
